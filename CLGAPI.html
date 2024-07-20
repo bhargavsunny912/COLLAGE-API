@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CLGAPI.CSS">
+</head>
+<body>
+    <h1>COLLAGE API</h1>
+    <marquee  scrollamount="15"><h2>Search Collages Based On the State Names,Which are registered in GovtPortal of INDIA</h2></marquee>
+    <div>
+        <input type="text" id="Input">
+        <button>Search</button>
+    </div>
+    <ul id="listitems">
+
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+       let url="http://universities.hipolabs.com/search?country=India&name=";
+
+       let button=document.querySelector("button");
+       button.addEventListener("click",async function(){
+        let input=document.querySelector("input").value;
+        let clgdata=await getclg(input);
+        console.log(clgdata);
+        filter(clgdata);
+       })
+
+       function filter(clgdata){
+        let UL=document.querySelector("#listitems");
+        UL.innerText="";
+        for(clg of clgdata){
+            console.log(clg.name);
+            let Li=document.createElement("li");
+            Li.innerText=clg.name;
+            UL.appendChild(Li);    
+        }
+       }
+
+       async function getclg(input){
+        let clg=await axios.get(url+input);
+        return clg.data;
+       }
+       
+    </script>
+</body>
+</html>

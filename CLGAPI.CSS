@@ -1,0 +1,22 @@
+h1{
+    text-align: center;font-size: 40px;text-decoration:underline;background: linear-gradient(to right,red,blue,red,orange);color: transparent;background-clip: text;
+}
+h2{
+    margin: 0px; text-align: center;background: linear-gradient(to right,red,blue,red,blue,red);color: transparent;background-clip: text;
+}
+#Input{
+    width: 300px;height: 30px;font-size: 20px;
+}
+button{height: 35px;width: 100px;font-size: 20px;}
+div{
+    margin: 50px 400px;display: inline-block;
+}
+#listitems{
+    margin-left: 380px;font-size: 20px;
+}
+li{
+    line-height: 30px;list-style:decimal;
+}
+marquee{
+    direction:left;background-color:burlywood;behavior: alternate;
+}
